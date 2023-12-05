@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SecondActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tv_welcome"
         android:layout_centerInParent="true"
-        android:text="Welcome"
+        android:text="Cook Bot"
         android:gravity="center"
         android:textSize="28sp"
         />

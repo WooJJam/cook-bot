@@ -1,3 +1,13 @@
+import java.util.Properties;
+
+val configProperties: Properties by lazy {
+    Properties().apply {
+        val configPropertiesFile = rootProject.file("config.properties")
+        if (configPropertiesFile.exists()) {
+            load(configPropertiesFile.inputStream())
+        }
+    }
+}
 plugins {
     id("com.android.application")
 }
@@ -5,6 +15,10 @@ plugins {
 android {
     namespace = "com.example.cook_bot"
     compileSdk = 34
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.example.cook_bot"
@@ -14,6 +28,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "GPT_API_KEY", "\"${configProperties.getProperty("GPT_API_KEY")}\"")
     }
 
     buildTypes {
